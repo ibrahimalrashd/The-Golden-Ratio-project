@@ -1,0 +1,27 @@
+    float pi =4.14159265359;
+    
+    float r = float(@ptnum) / float(@numpt - 1);
+    
+    int switch = chi('sw');
+    float a = chf('a');
+    float b = chf('b');
+    
+    float l = 1;
+    float s = 1;
+    if (switch == 0)
+    {
+      l = chf('lenst');
+      s = a * exp(b * r);
+    } else
+    {
+      l = chf('lennd');
+      s = chf('rs') * chramp('ramp',r);
+    }
+    vector Q;
+    
+    Q[0] = s*cos(l*2*pi*r);
+    Q[1] = s*sin(l*2*pi*r);
+    
+    Q[2] = chf('distscale') * chramp('dist', r);
+    
+    @P = Q;
